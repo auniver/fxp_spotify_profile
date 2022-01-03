@@ -1,6 +1,7 @@
 # Update your profile by the song your are listening on spotify!
-This code updates your fxp's by your current song you play on spotify!
+This code updates your fxp's profile (picture and bio) by your current song you play on spotify!
 
+<img src="https://image.prntscr.com/image/k_kFunFvQlWtTHFFo3meEQ.png" />
 
 # How to use?
 
