@@ -1,4 +1,4 @@
-# Update your profile according to what your are listening on spotify!
+# Update your profile by the song your are listening on spotify!
 This code updates your fxp's by your current song you play on spotify!
 
 
