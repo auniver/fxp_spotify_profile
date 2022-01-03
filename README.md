@@ -20,4 +20,5 @@ export default {
 ```
 7. <code>npm i</code>
 8. <code>node .</code>
-9. Start listening to music and have fun! 🎧🎶😃
+9. Login to your spotify on <code>http://localhost:8888/login</code>
+10. Start listening to music and have fun! 🎧🎶😃
