@@ -103,8 +103,4 @@ async function getCurrentSong() {
   }
 }
 
-process.on('exit', function() {
-  setProfileImage(BACKUP.AVATAR_LINK)
-});
-
 setInterval(getCurrentSong, 5000)
