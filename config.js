@@ -6,8 +6,5 @@ module.exports = {
         clientId: '',
         clientSecret: '',
         redirectUri: 'http://localhost:8888/callback'
-    },
-    BACKUP: {
-        AVATAR_LINK: '', //only from fxp
     }
 }
