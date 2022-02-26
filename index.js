@@ -1,6 +1,7 @@
-const {USER_ID_FXP, LOGIN_USERNAME, LOGIN_PASSWORD, SPOTIFY_DETAILS, BACKUP} = require('./config')
+const {USER_ID_FXP, LOGIN_USERNAME, LOGIN_PASSWORD, SPOTIFY_DETAILS, BACKUP_AVATAR_LINK} = require('./config')
 const url           = require('url')
 const fetch         = require('node-fetch')
+const process       = require('process')
 const FormData      = require('form-data')
 const SpotifyWebApi = require('spotify-web-api-node')
 const spotifyApi    = new SpotifyWebApi(SPOTIFY_DETAILS)
@@ -97,10 +98,21 @@ async function getCurrentSong() {
     const buffer = await (await fetch(song.album.images[1].url)).buffer()
     const imgbs64 = 'data:image/png;base64,'+buffer.toString('base64')  
     setProfileImage(await uploadImage(imgbs64))
-    console.log("Updating your profile...");
+    console.log("Updating your profile...")
   } catch (err) {
     console.log('Open your browser at http://localhost:8888/login and come back here.')
   }
 }
 
 setInterval(getCurrentSong, 5000)
+
+process.on('SIGINT', async () => {
+  if (BACKUP_AVATAR_LINK != '') {
+    const buffer = await (await fetch(BACKUP_AVATAR_LINK)).buffer()
+    const imgbs64 = 'data:image/png;base64,'+buffer.toString('base64')
+    setProfileImage(await uploadImage(imgbs64))
+    setTimeout(process.exit, 2000)    
+  } else {
+    process.exit(1)
+  }
+})
